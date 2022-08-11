@@ -416,7 +416,7 @@ app.put('/api/update/trayname', (req, res) => {
 });
 
 
-app.listen(process.end.PORT || PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`running on port ${PORT}`);
 
 });
