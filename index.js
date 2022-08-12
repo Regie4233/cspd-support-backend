@@ -7,12 +7,19 @@ const mysql = require('mysql');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
-const db = mysql.createPool({
-    hostname: 'us-cdbr-east-06.cleardb.net',
+// const db = mysql.createPool({
+//     hostname: 'us-cdbr-east-06.cleardb.net',
+//     user: 'be67012758069e',
+//     password: '9d65f2d4',
+//     database: 'heroku_22b6e1917685152',
+//     connectionLimit: 10
+
+// });
+const db = mysql.createConnection({
+    host: 'us-cdbr-east-06.cleardb.net',
     user: 'be67012758069e',
     password: '9d65f2d4',
     database: 'heroku_22b6e1917685152',
-    connectionLimit: 10
 
 });
 //mysql://be67012758069e:9d65f2d4@us-cdbr-east-06.cleardb.net/heroku_22b6e1917685152?reconnect=true trayinfo
