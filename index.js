@@ -47,7 +47,7 @@ app.use(session({
     secret: 'thissessionissecret',
     resave: false,
     saveUnintialized: true,
-    cookie: {expires: 60 * 60 * 24 },
+    cookie: {expires: 60 * 60 * 24, sameSite: 'none' },
     
 }));
 app.get('/api/loginstatus', (req, res) => {
