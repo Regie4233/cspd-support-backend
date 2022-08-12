@@ -45,9 +45,10 @@ app.use(cookieParser());
 app.use(session({
     key: 'UserID',
     secret: 'thissessionissecret',
-    resave: true,
+    resave: false,
     saveUnintialized: true,
-    cookie: {expires: 60 * 60 * 24 }
+    cookie: {expires: 60 * 60 * 24 },
+    
 }));
 app.get('/api/loginstatus', (req, res) => {
     if(req.session.user){
