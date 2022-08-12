@@ -19,14 +19,14 @@ const db = mysql.createPool({
 //mysql://b71f2d33ce9385:a02a3a4d@us-cdbr-east-06.cleardb.net/heroku_e8ff83b01220c86?reconnect=true login
 
 
-const dblogin = mysql.createPool({
-    hostname: 'us-cdbr-east-06.cleardb.net',
-    user: 'b71f2d33ce9385',
-    password: 'a02a3a4d',
-    database: 'heroku_e8ff83b01220c86',
-    connectionLimit: 2
+// const dblogin = mysql.createPool({
+//     hostname: 'us-cdbr-east-06.cleardb.net',
+//     user: 'b71f2d33ce9385',
+//     password: 'a02a3a4d',
+//     database: 'heroku_e8ff83b01220c86',
+//     connectionLimit: 2
 
-});
+// });
 app.use(cors({
     origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
@@ -48,14 +48,13 @@ app.get('/api/login', (req, res) => {
     }else{
         res.send({loggedIn: false});
     }
-    res.set('Access-Control-Allow-Origin', '*');
 });
 
 app.post('/api/login', (req, res) => {
     const username = req.body.fusername;
     const password = req.body.fpassword;
 
-    dblogin.query("SELECT * FROM staff WHERE username = ?;", [username], (err, result) => {
+    db.query("SELECT * FROM Usrlogin WHERE username = ?;", [username], (err, result) => {
         if (err) {
             res.send({ err: err });
             console.log(err);
