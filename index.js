@@ -42,7 +42,7 @@ app.use(session({
     saveUnintialized: false,
     cookie: {expires: 60 * 60 * 24 }
 }));
-app.get('/api/login', (req, res) => {
+app.get('/api/loginstatus', (req, res) => {
     if(req.session.user){
         res.send({loggedIn: true, loggedUser: req.session.user});
     }else{
