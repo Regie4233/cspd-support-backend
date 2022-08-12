@@ -28,7 +28,7 @@ const dblogin = mysql.createPool({
 
 });
 app.use(cors({
-    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer'],
+    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
 }));
