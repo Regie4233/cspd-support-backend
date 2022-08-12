@@ -35,7 +35,7 @@ const db = mysql.createConnection({
 
 // });
 app.use(cors({
-    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer'],
+    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
@@ -45,7 +45,7 @@ app.use(cookieParser());
 app.use(session({
     key: 'UserID',
     secret: 'thissessionissecret',
-    resave: false,
+    resave: true,
     saveUnintialized: false,
     cookie: {expires: 60 * 60 * 24, secure: true,sameSite: 'none' },
     
