@@ -28,7 +28,8 @@ const dblogin = mysql.createPool({
 
 });
 app.use(cors({
-    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://mlmdb.herokuapp.com'],
+    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 
+    'https://superb-churros-56b022.netlify.app/viewer', 'https://mlmdb.herokuapp.com/api/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
 }));
