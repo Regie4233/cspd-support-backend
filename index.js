@@ -46,7 +46,7 @@ app.use(session({
     key: 'UserID',
     secret: 'thissessionissecret',
     resave: false,
-    saveUnintialized: true,
+    saveUnintialized: false,
     cookie: {expires: 60 * 60 * 24, secure: true,sameSite: 'none' },
     
 }));
