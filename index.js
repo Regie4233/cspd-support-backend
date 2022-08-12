@@ -6,7 +6,7 @@ const cors = require('cors');
 const mysql = require('mysql');
 const app = express();
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const db = mysql.createPool({
     hostname: 'us-cdbr-east-06.cleardb.net',
     user: 'be67012758069e',
@@ -416,7 +416,7 @@ app.put('/api/update/trayname', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
     console.log(`running on port ${PORT}`);
 
 });
