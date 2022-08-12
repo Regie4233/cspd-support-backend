@@ -30,7 +30,6 @@ const dblogin = mysql.createPool({
 app.use(cors({
     origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
-    allowedHeaders: origin,
     credentials: true,
 }));
 app.use(express.json());
@@ -43,7 +42,10 @@ app.use(session({
     saveUnintialized: false,
     cookie: {expires: 60 * 60 * 24 }
 }));
-
+app.get('/cors', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.send({ "msg": "This has CORS enabled" })
+    })
 app.get('/api/login', (req, res) => {
     if(req.session.user){
         res.send({loggedIn: true, loggedUser: req.session.user});
