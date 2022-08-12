@@ -42,16 +42,13 @@ app.use(session({
     saveUnintialized: false,
     cookie: {expires: 60 * 60 * 24 }
 }));
-app.get('/cors', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.send({ "msg": "This has CORS enabled" })
-    })
 app.get('/api/login', (req, res) => {
     if(req.session.user){
         res.send({loggedIn: true, loggedUser: req.session.user});
     }else{
         res.send({loggedIn: false});
     }
+    res.set('Access-Control-Allow-Origin', '*');
 });
 
 app.post('/api/login', (req, res) => {
