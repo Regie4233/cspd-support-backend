@@ -8,26 +8,27 @@ const app = express();
 
 const PORT = 3001;
 const db = mysql.createPool({
-    hostname: 'localhost',
-    user: 'root',
-    password: 'easypassword07621)&^@!',
-    database: 'mlm',
+    hostname: 'us-cdbr-east-06.cleardb.net',
+    user: 'be67012758069e',
+    password: '9d65f2d4',
+    database: 'heroku_22b6e1917685152',
     connectionLimit: 10
 
 });
-
+//mysql://be67012758069e:9d65f2d4@us-cdbr-east-06.cleardb.net/heroku_22b6e1917685152?reconnect=true trayinfo
+//mysql://b71f2d33ce9385:a02a3a4d@us-cdbr-east-06.cleardb.net/heroku_e8ff83b01220c86?reconnect=true login
 
 
 const dblogin = mysql.createPool({
-    hostname: 'localhost',
-    user: 'root',
-    password: 'easypassword07621)&^@!',
-    database: 'applicants',
+    hostname: 'us-cdbr-east-06.cleardb.net',
+    user: 'b71f2d33ce9385',
+    password: 'a02a3a4d',
+    database: 'heroku_e8ff83b01220c86',
     connectionLimit: 2
 
 });
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:3000/reporter', 'http://localhost:3000/viewer'],
+    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true
 }));
