@@ -62,7 +62,7 @@ app.post('/api/login', (req, res) => {
     const username = req.body.fusername;
     const password = req.body.fpassword;
 
-    db.query("SELECT * FROM usrlogin WHERE username = ?;", [username], (err, result) => {
+    db.query("SELECT * FROM usrlogin WHERE username = ?", [username], (err, result) => {
         if (err) {
             res.send({ err: err });
             console.log(err);
