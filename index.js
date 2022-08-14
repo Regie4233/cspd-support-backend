@@ -50,13 +50,13 @@ app.use(session({
     cookie: {expires: 60 * 60 * 24 * 1000, secure: true,sameSite: 'none' },
     
 }));
-app.get('/api/loginstatus', (req, res) => {
-    if(req.session.user){
-        res.send({loggedIn: true, loggedUser: req.session.user});
-    }else{
-        res.send({loggedIn: false});
-    }
-});
+// app.get('/api/loginstatus', (req, res) => {
+//     if(req.session.user){
+//         res.send({loggedIn: true, loggedUser: req.session.user});
+//     }else{
+//         res.send({loggedIn: false});
+//     }
+// });
 
 app.post('/api/login', (req, res) => {
     const username = req.body.fusername;
