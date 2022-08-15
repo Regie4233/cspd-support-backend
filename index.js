@@ -118,7 +118,7 @@ db.query('SELECT * FROM trayinfo', (err, result) => {
     // }
 
     app.get('/api/get/or3', (req, res) => {
-        res.send(result[0]);
+        res.send(result[0].roomnum);
     });
     
 });
