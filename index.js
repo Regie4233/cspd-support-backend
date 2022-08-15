@@ -105,12 +105,16 @@ app.post('/api/insert', (req, res) => {
 db.query('SELECT * FROM trayinfo', (err, result) => {
     if (err) throw err;
 
-    app.get('/api/get/or1', (req, res) => {
-        res.send(result[0]);
-    });
-    // for(let i = 0; i < 32; i++){
-    //     if(result[])
-    // }
+    for(let i = 0; i < 32; i++){
+        if(result[i].data.roomnum == 2){
+            or2 = result[i];
+        }
+    }
+
+    // app.get('/api/get/or1', (req, res) => {
+    //     res.send(result[0]);
+    // });
+    
     //res.send(result);
 });
 
