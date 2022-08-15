@@ -7,14 +7,10 @@ const mysql = require('mysql');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
-// const db = mysql.createPool({
-//     hostname: 'us-cdbr-east-06.cleardb.net',
-//     user: 'be67012758069e',
-//     password: '9d65f2d4',
-//     database: 'heroku_22b6e1917685152',
-//     connectionLimit: 10
 
-// });
+let or1 = [];
+let or2 = [];
+
 const db = mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
     user: 'be67012758069e',
@@ -106,7 +102,17 @@ app.post('/api/insert', (req, res) => {
 });
 
 
+db.query('SELECT * FROM trayinfo', (err, result) => {
+    if (err) throw err;
 
+    app.get('/api/get/or1', (req, res) => {
+        res.send(result);
+    });
+    // for(let i = 0; i < 32; i++){
+    //     if(result[])
+    // }
+    //res.send(result);
+});
 
 app.get('/api/get/or1', (req, res) => {
     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 1 AND isUrgent = 0";
@@ -116,253 +122,253 @@ app.get('/api/get/or1', (req, res) => {
     });
 });
 
-app.get('/api/get/or2', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 2 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or2', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 2 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or3', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 3 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or3', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 3 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or4', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 4 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or4', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 4 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or5', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 5 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or5', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 5 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or6', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 6 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or6', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 6 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or7', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 7 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or7', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 7 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or8', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 8 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or8', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 8 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or9', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 9 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or9', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 9 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or10', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 10 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or10', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 10 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or11', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 11 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or11', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 11 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or12', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 12 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or12', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 12 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or13', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 13 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or13', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 13 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or14', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 14 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or14', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 14 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or15', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 15 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or15', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 15 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or16', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 16 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or16', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 16 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or17', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 17 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or17', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 17 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or18', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 18 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or18', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 18 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or19', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 19 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or19', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 19 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or20', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 20 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or20', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 20 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or21', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 21 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or21', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 21 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or22', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 22 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or22', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 22 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or23', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 23 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or23', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 23 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or24', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 24 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or24', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 24 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or25', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 25 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or25', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 25 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or26', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 26 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or26', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 26 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or27', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 27 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or27', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 27 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or28', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 28 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or28', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 28 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or29', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 29 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or29', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 29 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or30', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 30 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or30', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 30 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or31', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 31 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or31', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 31 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
-app.get('/api/get/or32', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 32 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) { console.log(err) }
-        res.send(result);
-    });
-});
+// app.get('/api/get/or32', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 32 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) { console.log(err) }
+//         res.send(result);
+//     });
+// });
 
 app.get('/api/get/urgentTrays', (req, res) => {
     const sqlselect = "SELECT * FROM trayinfo WHERE isUrgent = 1";
