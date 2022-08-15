@@ -116,10 +116,16 @@ db.query('SELECT * FROM trayinfo', (err, result) => {
     //         });
     //     }
     // }
-
-    app.get('/api/get/or3', (req, res) => {
-        res.send(result[0].roomnum);
+    Object.keys(result).forEach(element => {
+            const row = result[element];
+            app.get('/api/get/or3', (req, res) => {
+                res.send(row.roomnum);
+            });
     });
+
+    // app.get('/api/get/or3', (req, res) => {
+    //     res.send(result[0].data.roomnum);
+    // });
     
 });
 
