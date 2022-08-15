@@ -113,7 +113,7 @@ db.query('SELECT * FROM trayinfo', (err, result) => {
 
     app.get('/api/get/or1', (req, res) => {
         res.send(or2);
-    
+    });
     //res.send(result);
 });
 
