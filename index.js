@@ -43,8 +43,8 @@ app.use(session({
     secret: 'thissessionissecret',
     resave: false,
     saveUnintialized: false,
-    cookie: {expires: 60 * 60 * 24 * 1000, secure: true,sameSite: 'none' },
-    
+    cookie: { expires: 60 * 60 * 24 * 1000, secure: true, sameSite: 'none' },
+
 }));
 // app.get('/api/loginstatus', (req, res) => {
 //     if(req.session.user){
@@ -68,7 +68,7 @@ app.post('/api/login', (req, res) => {
             if (password === result[0].password) {
                 req.session.user = result;
                 res.send(result);
-            }else{
+            } else {
                 res.send({ message: "Wrong username or password!" });
             }
         } else {
@@ -105,16 +105,20 @@ app.post('/api/insert', (req, res) => {
 db.query('SELECT * FROM trayinfo', (err, result) => {
     if (err) throw err;
 
-    // for(let i = 0; i < 32; i++){
-    //     if(result[i].data.roomnum == 2){
-    //         or2 = result[i];
-    //     }
-    // }
+    for (let i = 0; i < 32; i++) {
+        if (result[i].data.roomnum == 1) {
+            app.get('/api/get/or1', (req, res) => {
+                res.send(result[i]);
+            });
+        } else if (result[i].data.roomnum == 2) {
+            app.get('/api/get/or2', (req, res) => {
+                res.send(result[i]);
+            });
+        }
+    }
 
-    app.get('/api/get/or1', (req, res) => {
-        res.send(result[0]);
-    });
-    
+
+
 });
 
 // app.get('/api/get/or1', (req, res) => {
