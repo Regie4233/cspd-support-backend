@@ -43,8 +43,8 @@ app.use(session({
     secret: 'thissessionissecret',
     resave: false,
     saveUnintialized: false,
-    cookie: { expires: 60 * 60 * 24 * 1000, secure: true, sameSite: 'none' },
-
+    cookie: {expires: 60 * 60 * 24 * 1000, secure: true,sameSite: 'none' },
+    
 }));
 // app.get('/api/loginstatus', (req, res) => {
 //     if(req.session.user){
@@ -68,7 +68,7 @@ app.post('/api/login', (req, res) => {
             if (password === result[0].password) {
                 req.session.user = result;
                 res.send(result);
-            } else {
+            }else{
                 res.send({ message: "Wrong username or password!" });
             }
         } else {
@@ -117,8 +117,10 @@ db.query('SELECT * FROM trayinfo', (err, result) => {
         }
     }
 
-
-
+    app.get('/api/get/or3', (req, res) => {
+        res.send(result[0]);
+    });
+    
 });
 
 // app.get('/api/get/or1', (req, res) => {
