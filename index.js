@@ -117,13 +117,13 @@ db.query('SELECT * FROM trayinfo', (err, result) => {
     //res.send(result);
 });
 
-app.get('/api/get/or1', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 1 AND isUrgent = 0";
-    db.query(sqlselect, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    });
-});
+// app.get('/api/get/or1', (req, res) => {
+//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 1 AND isUrgent = 0";
+//     db.query(sqlselect, (err, result) => {
+//         if (err) throw err;
+//         res.send(result);
+//     });
+// });
 
 // app.get('/api/get/or2', (req, res) => {
 //     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 2 AND isUrgent = 0";
