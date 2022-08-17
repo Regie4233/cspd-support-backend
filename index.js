@@ -31,7 +31,7 @@ const db = mysql.createConnection({
 
 // });
 app.use(cors({
-    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
+    origin: ['https://cspd-support.web.app', 'https://cspd-support.web.app/reporter', 'https://cspd-support.web.app/viewer', 'https://cspd-support.web.app/login'],
     //origin: ['http://localhost:3000', 'http://localhost:3000/reporter', 'http://localhost:3000/viewer', 'http://localhost:3000/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
