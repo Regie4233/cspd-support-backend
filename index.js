@@ -31,7 +31,8 @@ const db = mysql.createConnection({
 
 // });
 app.use(cors({
-    origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
+    //origin: ['https://superb-churros-56b022.netlify.app', 'https://superb-churros-56b022.netlify.app/reporter', 'https://superb-churros-56b022.netlify.app/viewer', 'https://superb-churros-56b022.netlify.app/login'],
+    origin: ['http://localhost:3000', 'http://localhost:3000/reporter', 'http://localhost:3000/viewer', 'http://localhost:3000/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
@@ -43,8 +44,10 @@ app.use(session({
     secret: 'thissessionissecret',
     resave: false,
     saveUnintialized: false,
-    cookie: {expires: 60 * 60 * 24 * 1000, secure: true,sameSite: 'none' },
-    
+    // cookie: { expires: 60 * 60 * 24},
+
+    cookie: { expires: 60 * 60 * 24 * 1000, secure: true, sameSite: 'none' },
+
 }));
 // app.get('/api/loginstatus', (req, res) => {
 //     if(req.session.user){
@@ -68,7 +71,7 @@ app.post('/api/login', (req, res) => {
             if (password === result[0].password) {
                 req.session.user = result;
                 res.send(result);
-            }else{
+            } else {
                 res.send({ message: "Wrong username or password!" });
             }
         } else {
@@ -100,286 +103,133 @@ app.post('/api/insert', (req, res) => {
     });
 
 });
+// function populateRoom(roomarray, newarray){
 
+// }
+app.get('/api/get/traydata', (req, res) => {
+    db.query('SELECT * FROM trayinfo', (err, result) => {
+        if (err) console.log(err); //took out throw eerro
+        let temp_or1 = []; 
+        let temp_or12 = [];let temp_or13 = [];
+        let temp_or2 = []; let temp_or14 = [];
+        let temp_or3 = []; let temp_or15 = [];
+        let temp_or4 = []; let temp_or16 = [];
+        let temp_or5 = []; let temp_or17 = [];
+        let temp_or6 = []; let temp_or18 = [];
+        let temp_or7 = []; let temp_or19 = [];
+        let temp_or8 = []; let temp_or20 = [];
+        let temp_or9 = []; let temp_or21 = [];
+        let temp_or10 = []; let temp_or22 = [];
+        let temp_or24 = [];let temp_or27 = [];
+        let temp_or11 = []; let temp_or25 = [];
+        let temp_or23 = []; let temp_or28 = [];
+        let temp_or26 = []; let temp_or31 = [];
+        let temp_or29 = []; let temp_or32 = [];
+        let temp_or30 = [];
+        for (let i = 0; i < result.length; i++) {
+            if (result[i].roomnum === 1) {
+                temp_or1.push(result[i]);
+            } else if (result[i].roomnum === 2) {
+                temp_or2.push(result[i]);
+            } else if (result[i].roomnum === 3) {
+                temp_or3.push(result[i]);
+            } else if (result[i].roomnum === 4) {
+                temp_or4.push(result[i]);
+            } else if (result[i].roomnum === 5) {
+                temp_or5.push(result[i]);
+            } else if (result[i].roomnum === 6) {
+                temp_or6.push(result[i]);
+            } else if (result[i].roomnum === 7) {
+                temp_or7.push(result[i]);
+            } else if (result[i].roomnum === 8) {
+                temp_or8.push(result[i]);
+            } else if (result[i].roomnum === 9) {
+                temp_or9.push(result[i]);
+            } else if (result[i].roomnum === 10) {
+                temp_or10.push(result[i]);
+            }else if (result[i].roomnum === 11) {
+                temp_or11.push(result[i]);
+            } else if (result[i].roomnum === 12) {
+                temp_or12.push(result[i]);
+            } else if (result[i].roomnum === 13) {
+                temp_or13.push(result[i]);
+            } else if (result[i].roomnum === 14) {
+                temp_or14.push(result[i]);
+            } else if (result[i].roomnum === 15) {
+                temp_or15.push(result[i]);
+            } else if (result[i].roomnum === 16) {
+                temp_or16.push(result[i]);
+            } else if (result[i].roomnum === 17) {
+                temp_or17.push(result[i]);
+            } else if (result[i].roomnum === 18) {
+                temp_or18.push(result[i]);
+            } else if (result[i].roomnum === 19) {
+                temp_or19.push(result[i]);
+            } else if (result[i].roomnum === 20) {
+                temp_or20.push(result[i]);
+            } else if (result[i].roomnum === 21) {
+                temp_or21.push(result[i]);
+            } else if (result[i].roomnum === 22) {
+                temp_or22.push(result[i]);
+            } else if (result[i].roomnum === 23) {
+                temp_or23.push(result[i]);
+            } else if (result[i].roomnum === 24) {
+                temp_or24.push(result[i]);
+            } else if (result[i].roomnum === 25) {
+                temp_or25.push(result[i]);
+            } else if (result[i].roomnum === 26) {
+                temp_or26.push(result[i]);
+            } else if (result[i].roomnum === 27) {
+                temp_or27.push(result[i]);
+            } else if (result[i].roomnum === 28) {
+                temp_or28.push(result[i]);
+            } else if (result[i].roomnum === 29) {
+                temp_or29.push(result[i]);
+            } else if (result[i].roomnum === 30) {
+                temp_or30.push(result[i]);
+            }else if (result[i].roomnum === 31) {
+                temp_or31.push(result[i]);
+            } else if (result[i].roomnum === 32) {
+                temp_or32.push(result[i]);
+            }
+            or1 = temp_or1;
+            or2 = temp_or2;
+            or3 = temp_or3;
+            or4 = temp_or4;
+            or5 = temp_or5;
+            or6 = temp_or6;
+            or7 = temp_or7;
+            or8 = temp_or8;
+            or9 = temp_or9;
+            or10 = temp_or10;
+            or11 = temp_or11;
+            or12 = temp_or12;
+            or13 = temp_or13;
+            or14 = temp_or14;
+            or15 = temp_or15;
+            or16 = temp_or16;
+            or17 = temp_or17;
+            or18 = temp_or18;
+            or19 = temp_or19;
+            or20 = temp_or20;
+            or21 = temp_or21;
+            or22 = temp_or22;
+            or23 = temp_or23;
+            or24 = temp_or24;
+            or25 = temp_or25;
+            or26 = temp_or26;
+            or27 = temp_or27;
+            or28 = temp_or28;
+            or29 = temp_or29;
+            or30 = temp_or30;
+            or31 = temp_or31;
+            or32 = temp_or32;
+        }
+        res.send({ or1, or2, or3, or4, or5, or6, or7, or8, or9, or10, or11, or12, or13, or14, or15, or16, or17, or18, or19, or20,
+            or21, or22, or23, or24, or25, or26, or27, or28, or29, or30, or31, or32});
 
-db.query('SELECT * FROM trayinfo', (err, result) => {
-    if (err) throw err;
-
-    // for (let i = 0; i < 32; i++) {
-    //     if (result[i].roomnum == 1) {
-    //         app.get('/api/get/or1', (req, res) => {
-    //             res.send(result[i]);
-    //         });
-    //     } else if (result[i].roomnum == 2) {
-    //         app.get('/api/get/or2', (req, res) => {
-    //             res.send(result[i]);
-    //         });
-    //     }
-    // }
-   
-
-    app.get('/api/get/or3', (req, res) => {
-        console.log(result.roomnum);
-        res.send(result);
     });
-    
 });
-
-// app.get('/api/get/or1', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 1 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or2', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 2 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or3', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 3 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or4', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 4 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or5', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 5 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or6', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 6 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or7', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 7 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or8', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 8 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or9', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 9 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or10', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 10 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or11', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 11 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or12', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 12 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or13', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 13 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or14', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 14 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or15', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 15 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or16', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 16 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or17', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 17 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or18', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 18 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or19', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 19 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or20', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 20 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or21', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 21 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or22', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 22 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or23', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 23 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or24', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 24 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or25', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 25 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or26', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 26 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or27', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 27 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or28', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 28 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or29', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 29 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or30', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 30 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or31', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 31 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) throw err;
-//         res.send(result);
-//     });
-// });
-
-// app.get('/api/get/or32', (req, res) => {
-//     const sqlselect = "SELECT * FROM trayinfo WHERE roomnum = 32 AND isUrgent = 0";
-//     db.query(sqlselect, (err, result) => {
-//         if (err) { console.log(err) }
-//         res.send(result);
-//     });
-// });
 
 app.get('/api/get/urgentTrays', (req, res) => {
     const sqlselect = "SELECT * FROM trayinfo WHERE isUrgent = 1";
