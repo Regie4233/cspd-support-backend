@@ -244,7 +244,7 @@ app.get('/api/get/traydata', (req, res) => {
 
         }
         res.send(
-            room_arr.contents[0]
+            room_arr[0].contents[0]
         );
         // , or2: room_arr[1], or3: room_arr[2], or4: room_arr[3], or5: room_arr[4], or6: room_arr[5], or7: room_arr[6], or8: room_arr[7], or9: room_arr[8], or10: room_arr[9], 
         //     or11: room_arr[10], or12: room_arr[11], or13: room_arr[12], or14: room_arr[13], or15: room_arr[14], or16: room_arr[15], or17: room_arr[16], or18: room_arr[17], or19: room_arr[18], or20: room_arr[19],
