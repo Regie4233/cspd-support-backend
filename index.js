@@ -270,7 +270,7 @@ app.get('/api/get/traydata', (req, res) => {
                     temp_arr.push(result[y]);
                 }
             }
-
+            console.log(temp_arr);
             room_arr[i] = temp_arr;
 
         }
