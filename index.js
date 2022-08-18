@@ -262,14 +262,13 @@ app.get('/api/get/traydata', (req, res) => {
         //     or21, or22, or23, or24, or25, or26, or27, or28, or29, or30, or31, or32});
         for (let i = 0; i < 31; i++) {
             let temp_arr = [];
+            room_arr[i] = [];
             for (let y = 0; y < result.length; y++) {
                 if (result[y].roomnum === i) {
                     temp_arr.push(result[y]);
                 }
             }
-            const copied = Array.from(temp_arr);
-            room_arr[i] = copied;
-            //room_arr[i].push(...temp_arr);
+            room_arr[i].push(...temp_arr);
 
         }
         res.send({
