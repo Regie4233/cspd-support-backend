@@ -266,11 +266,10 @@ app.get('/api/get/traydata', (req, res) => {
 
             for (let y = 0; y < result.length; y++) {
 
-                if (result[y].roomnum == i) {
+                if (result[y].roomnum === i) {
                     temp_arr.push(result[y]);
                 }
             }
-            console.log(temp_arr);
             room_arr[i] = temp_arr;
 
         }
