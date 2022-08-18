@@ -63,7 +63,7 @@ const db = mysql.createConnection({
 
 // });
 app.use(cors({
-    origin: ['https://regie4233.github.io', 'https://regie4233.github.io/cspd-support', 'https://regie4233.github.io/cspd-support/reporter', 'https://regie4233.github.io/cspd-support/viewer', 'https://regie4233.github.io/cspd-support/login'],
+    origin: ['https://regie4233.github.io'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
