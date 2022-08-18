@@ -267,7 +267,9 @@ app.get('/api/get/traydata', (req, res) => {
                     temp_arr.push(result[y]);
                 }
             }
-            room_arr[i].push(...temp_arr);
+            const copied = temp_arr;
+            room_arr[i] = copied;
+            //room_arr[i].push(...temp_arr);
 
         }
         res.send({
