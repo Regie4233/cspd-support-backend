@@ -244,10 +244,7 @@ app.get('/api/get/traydata', (req, res) => {
 
         }
         res.send({
-            or1: room_arr[0], or2: room_arr[1], or3: room_arr[2], or4: room_arr[3], or5: room_arr[4], or6: room_arr[5], or7: room_arr[6], or8: room_arr[7], or9: room_arr[8], or10: room_arr[9], 
-            or11: room_arr[10], or12: room_arr[11], or13: room_arr[12], or14: room_arr[13], or15: room_arr[14], or16: room_arr[15], or17: room_arr[16], or18: room_arr[17], or19: room_arr[18], or20: room_arr[19],
-            or21: room_arr[20], or22: room_arr[21], or23: room_arr[22], or24: room_arr[23], or25: room_arr[24], or26: room_arr[25], or27: room_arr[26], or28: room_arr[27], or29: room_arr[28], or30: room_arr[29], 
-            or31: room_arr[30], or32: room_arr[31]
+            or1: room_arr[0].contents
         });
 
     });
