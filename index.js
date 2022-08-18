@@ -175,7 +175,7 @@ app.get('/api/get/traydata', (req, res) => {
         let or32 = [];
         let room_arr = [or1, or2, or3, or4, or5, or6, or7, or8, or9, or10, or11, or12, or13, or14, or15, or16, or17, or18, or19, or20,
             or21, or22, or23, or24, or25, or26, or27, or28, or29, or30, or31, or32];
-        for (let i = 0; i < 31; i++) {
+        for (let i = 0; i < 32; i++) {
 
             for (let y = 0; y < result.length; y++) {
                 if (result[y].roomnum === i) {
