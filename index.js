@@ -155,67 +155,67 @@ app.get('/api/get/traydata', (req, res) => {
             if(result[i].roomnum === 1){
                 temp_or1.push(result[i]);
             } else if(result[i].roomnum === 2){
-                temp_or1.push(result[i]);
+                temp_or2.push(result[i]);
             } else if(result[i].roomnum === 3){
-                temp_or1.push(result[i]);
+                temp_or3.push(result[i]);
             } else if(result[i].roomnum === 4){
-                temp_or1.push(result[i]);
+                temp_or4.push(result[i]);
             } else if(result[i].roomnum === 5){
-                temp_or1.push(result[i]);
+                temp_or5.push(result[i]);
             } else if(result[i].roomnum === 6){
-                temp_or1.push(result[i]);
+                temp_or6.push(result[i]);
             } else if(result[i].roomnum === 7){
-                temp_or1.push(result[i]);
+                temp_or7.push(result[i]);
             } else if(result[i].roomnum === 8){
-                temp_or1.push(result[i]);
+                temp_or8.push(result[i]);
             } else if(result[i].roomnum === 9){
-                temp_or1.push(result[i]);
+                temp_or9.push(result[i]);
             } else if(result[i].roomnum === 10){
-                temp_or1.push(result[i]);
+                temp_or10.push(result[i]);
             } else if(result[i].roomnum === 11){
-                temp_or1.push(result[i]);
+                temp_or11.push(result[i]);
             } else if(result[i].roomnum === 12){
-                temp_or1.push(result[i]);
+                temp_or12.push(result[i]);
             } else if(result[i].roomnum === 13){
-                temp_or1.push(result[i]);
+                temp_or13.push(result[i]);
             } else if(result[i].roomnum === 14){
-                temp_or1.push(result[i]);
+                temp_or14.push(result[i]);
             } else if(result[i].roomnum === 15){
-                temp_or1.push(result[i]);
+                temp_or15.push(result[i]);
             } else if(result[i].roomnum === 16){
-                temp_or1.push(result[i]);
+                temp_or16.push(result[i]);
             } else if(result[i].roomnum === 17){
-                temp_or1.push(result[i]);
+                temp_or17.push(result[i]);
             } else if(result[i].roomnum === 18){
-                temp_or1.push(result[i]);
+                temp_or18.push(result[i]);
             } else if(result[i].roomnum === 19){
-                temp_or1.push(result[i]);
+                temp_or19.push(result[i]);
             } else if(result[i].roomnum === 20){
-                temp_or1.push(result[i]);
+                temp_or20.push(result[i]);
             } else if(result[i].roomnum === 21){
-                temp_or1.push(result[i]);
+                temp_or21.push(result[i]);
             } else if(result[i].roomnum === 22){
-                temp_or1.push(result[i]);
+                temp_or22.push(result[i]);
             } else if(result[i].roomnum === 23){
-                temp_or1.push(result[i]);
+                temp_or23.push(result[i]);
             } else if(result[i].roomnum === 24){
-                temp_or1.push(result[i]);
+                temp_or24.push(result[i]);
             } else if(result[i].roomnum === 25){
-                temp_or1.push(result[i]);
+                temp_or25.push(result[i]);
             } else if(result[i].roomnum === 26){
-                temp_or1.push(result[i]);
+                temp_or26.push(result[i]);
             } else if(result[i].roomnum === 27){
-                temp_or1.push(result[i]);
+                temp_or27.push(result[i]);
             } else if(result[i].roomnum === 28){
-                temp_or1.push(result[i]);
+                temp_or28.push(result[i]);
             } else if(result[i].roomnum === 29){
-                temp_or1.push(result[i]);
+                temp_or29.push(result[i]);
             } else if(result[i].roomnum === 30){
-                temp_or1.push(result[i]);
+                temp_or30.push(result[i]);
             } else if(result[i].roomnum === 31){
-                temp_or1.push(result[i]);
+                temp_or31.push(result[i]);
             } else if(result[i].roomnum === 32){
-                temp_or1.push(result[i]);
+                temp_or32.push(result[i]);
             }
             or1 = temp_or1;
             or2 = temp_or2;
