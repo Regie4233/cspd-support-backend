@@ -217,39 +217,40 @@ app.get('/api/get/traydata', (req, res) => {
             } else if(result[i].roomnum === 32){
                 temp_or32.push(result[i]);
             }
-            or1 = temp_or1;
-            or2 = temp_or2;
-            or3 = temp_or3;
-            or4 = temp_or4;
-            or5 = temp_or5;
-            or6 = temp_or6;
-            or7 = temp_or7;
-            or8 = temp_or8;
-            or9 = temp_or9;
-            or10 = temp_or10;
-            or11 = temp_or11;
-            or12 = temp_or12;
-            or13 = temp_or13;
-            or14 = temp_or14;
-            or15 = temp_or15;
-            or16 = temp_or16;
-            or17 = temp_or17;
-            or18 = temp_or18;
-            or19 = temp_or19;
-            or20 = temp_or20;
-            or21 = temp_or21;
-            or22 = temp_or22;
-            or23 = temp_or23;
-            or24 = temp_or24;
-            or25 = temp_or25;
-            or26 = temp_or26;
-            or27 = temp_or27;
-            or28 = temp_or28;
-            or29 = temp_or29;
-            or30 = temp_or30;
-            or31 = temp_or31;
-            or32 = temp_or32;
         }
+        
+        or1 = temp_or1;
+        or2 = temp_or2;
+        or3 = temp_or3;
+        or4 = temp_or4;
+        or5 = temp_or5;
+        or6 = temp_or6;
+        or7 = temp_or7;
+        or8 = temp_or8;
+        or9 = temp_or9;
+        or10 = temp_or10;
+        or11 = temp_or11;
+        or12 = temp_or12;
+        or13 = temp_or13;
+        or14 = temp_or14;
+        or15 = temp_or15;
+        or16 = temp_or16;
+        or17 = temp_or17;
+        or18 = temp_or18;
+        or19 = temp_or19;
+        or20 = temp_or20;
+        or21 = temp_or21;
+        or22 = temp_or22;
+        or23 = temp_or23;
+        or24 = temp_or24;
+        or25 = temp_or25;
+        or26 = temp_or26;
+        or27 = temp_or27;
+        or28 = temp_or28;
+        or29 = temp_or29;
+        or30 = temp_or30;
+        or31 = temp_or31;
+        or32 = temp_or32;
 
         res.send({
             or1, or2, or3, or4, or5, or6, or7, or8, or9, or10, or11, or12, or13, or14, or15, or16, or17, or18, or19, or20,
@@ -275,6 +276,7 @@ app.delete('/api/delete/:tname', (req, res) => {
     const sqlquery = "DELETE FROM trayinfo WHERE id = ?";
     db.query(sqlquery, name, (err, result) => {
         if (err) console.log(err);
+
         res.send(result);
     });
 
@@ -305,7 +307,7 @@ app.put('/api/update/casecart', (req, res) => {
     });
 });
 
-app.put('/api/update/trayname', (req, res) => {
+app.put('/api/update/trayname', (req, res) => { //work in progress
     const id = req.body.fid;
     const name = req.body.fname;
 
