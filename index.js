@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require('cors');
 const mysql = require('mysql');
+const { MemoryStore } = require('express-session');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
@@ -75,9 +76,9 @@ app.use(session({
     secret: 'thissessionissecret',
     resave: false,
     saveUnintialized: false,
-    // cookie: { expires: 60 * 60 * 24},
 
-    cookie: { expires: 60 * 60 * 24 * 1000, secure: true, sameSite: 'none' },
+    cookie: { expires: 60 * 60 * 24, secure: true, sameSite: 'none' },
+    store: new MemoryStore({checkPeriod: 60 * 60})
 
 }));
 // app.get('/api/loginstatus', (req, res) => {
@@ -297,8 +298,6 @@ app.put('/api/update/location', (req, res) => {
 app.put('/api/update/casecart', (req, res) => {
     const id = req.body.fid;
     const casecart = req.body.fcasecart;
-
-
     const sqlquery = 'UPDATE trayinfo SET casecartnum = ? WHERE id = ?';
     db.query(sqlquery, [casecart, id], (err, result) => {
         if (err) { console.log("..." + err); }
@@ -310,7 +309,6 @@ app.put('/api/update/casecart', (req, res) => {
 app.put('/api/update/trayname', (req, res) => { //work in progress
     const id = req.body.fid;
     const name = req.body.fname;
-
 
     const sqlquery = 'UPDATE trayinfo SET trayname = ? WHERE id = ?';
     db.query(sqlquery, [name, id], (err, result) => {
