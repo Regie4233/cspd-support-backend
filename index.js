@@ -104,7 +104,7 @@ app.post('/api/login', (req, res) => {
                 req.session.user = result;
                 res.send(result);
             } else {
-                res.send({ message: "Wrong username or password!" });
+                res.send(false);
             }
         } else {
             res.send(false);
