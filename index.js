@@ -107,7 +107,7 @@ app.post('/api/login', (req, res) => {
                 res.send({ message: "Wrong username or password!" });
             }
         } else {
-            res.send({ message: "User Does not exists!" });
+            res.send(false);
         }
     });
 });
