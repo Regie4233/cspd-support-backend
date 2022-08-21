@@ -77,7 +77,7 @@ app.use(session({
     resave: false,
     saveUnintialized: false,
 
-    cookie: { expires: 60 * 60 * 24, secure: true, sameSite: 'none' },
+    cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
     store: new MemoryStore({checkPeriod: 60 * 60})
 
 }));
@@ -104,7 +104,8 @@ app.post('/api/login', (req, res) => {
                 req.session.user = result;
                 res.send(result);
             } else {
-                res.send(false);
+                res.send(false
+                    );
             }
         } else {
             res.send(false);
@@ -139,8 +140,8 @@ app.post('/api/insert', (req, res) => {
 
 // }
 app.get('/api/get/traydata', (req, res) => {
-    
-    db.query('SELECT * FROM trayinfo', (err, result) => {
+    const casenumber = req.fcasenum;
+    db.query(`SELECT * FROM case_number_${casenumber}`, (err, result) => {
         if (err) console.log(err); //took out throw eerro
 
 
