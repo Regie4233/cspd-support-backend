@@ -254,7 +254,7 @@ app.get('/api/get/traydata', (req, res) => {
 
         res.send({
             or1, or2, or3, or4, or5, or6, or7, or8, or9, or10, or11, or12, or13, or14, or15, or16, or17, or18, or19, or20,
-            or21, or22, or23, or24, or25, or26, or27, or28, or29, or30, or31, or32, casenum
+            or21, or22, or23, or24, or25, or26, or27, or28, or29, or30, or31, or32
         });
 
     });
