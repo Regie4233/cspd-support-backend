@@ -138,7 +138,7 @@ app.post('/api/insert', (req, res) => {
 });
 
 app.get('/api/get/traydata', (req, res) => {
-    const casenum = req.body.fcasenum;
+    
     db.query(`SELECT * FROM case_number_1`, (err, result) => {
         if (err) console.log(err); //took out throw eerro
 
@@ -261,7 +261,7 @@ app.get('/api/get/traydata', (req, res) => {
 });
 
 app.get('/api/get/urgentTrays', (req, res) => {
-    const sqlselect = "SELECT * FROM trayinfo WHERE isUrgent = 1";
+    const sqlselect = "SELECT * FROM case_number_1 WHERE isUrgent = 1";
     db.query(sqlselect, (err, result) => {
         if (err) { console.log(err) }
         res.send(result);
@@ -273,7 +273,7 @@ app.get('/api/get/urgentTrays', (req, res) => {
 app.delete('/api/delete/:tname', (req, res) => {
 
     const name = req.params.tname;
-    const sqlquery = "DELETE FROM trayinfo WHERE id = ?";
+    const sqlquery = "DELETE FROM case_number_1 WHERE id = ?";
     db.query(sqlquery, name, (err, result) => {
         if (err) console.log(err);
 
@@ -287,7 +287,7 @@ app.put('/api/update/location', (req, res) => {
     const location = req.body.fcurrentLocation;
 
 
-    const sqlquery = 'UPDATE trayinfo SET currentLocation = ? WHERE id = ?';
+    const sqlquery = 'UPDATE case_number_1 SET currentLocation = ? WHERE id = ?';
     db.query(sqlquery, [location, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated location...');
@@ -297,7 +297,7 @@ app.put('/api/update/location', (req, res) => {
 app.put('/api/update/casecart', (req, res) => {
     const id = req.body.fid;
     const casecart = req.body.fcasecart;
-    const sqlquery = 'UPDATE trayinfo SET casecartnum = ? WHERE id = ?';
+    const sqlquery = 'UPDATE case_number_1 SET casecartnum = ? WHERE id = ?';
     db.query(sqlquery, [casecart, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated case cart num...');
@@ -309,7 +309,7 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
     const id = req.body.fid;
     const name = req.body.fname;
 
-    const sqlquery = 'UPDATE trayinfo SET trayname = ? WHERE id = ?';
+    const sqlquery = 'UPDATE case_number_1 SET trayname = ? WHERE id = ?';
     db.query(sqlquery, [name, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated tray name...');
