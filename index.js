@@ -128,7 +128,7 @@ app.post('/api/insert', (req, res) => {
     const newCasecart = req.body.fcasecart;
 
     console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal + ' ' + newUrgentVal);
-    const sqlquery = `INSERT INTO trayinfo (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
+    const sqlquery = `INSERT INTO case_number_1 (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
     db.query(sqlquery, [newTrayname, newCurrentLocation, newNotes, newRoomVal, newUrgentVal, newTime, newCasecart], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('post added...');
