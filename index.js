@@ -139,7 +139,8 @@ app.post('/api/insert', (req, res) => {
 
 app.get('/api/get/traydata', (req, res) => {
     const casenum = req.body.fcasenum;
-    db.query(`SELECT * FROM case_number_${casenum}`, (err, result) => {
+    console.log(casenum);
+    db.query(`SELECT * FROM case_number_1`, (err, result) => {
         if (err) console.log(err); //took out throw eerro
 
 
