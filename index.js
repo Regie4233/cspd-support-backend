@@ -138,7 +138,7 @@ app.post('/api/insert', (req, res) => {
 });
 
 app.get('/api/get/traydata/:cname', (req, res) => {
-    const casenum = req.params.cname;
+    let casenum = req.params.cname;
     console.log(casenum);
     db.query(`SELECT * FROM case_number_${casenum}`, (err, result) => {
         if (err) console.log(err); //took out throw eerro
