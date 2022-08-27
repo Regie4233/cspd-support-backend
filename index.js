@@ -64,7 +64,7 @@ const db = mysql.createConnection({
 
 // });
 app.use(cors({
-    origin: ['https://regie4233.github.io'],
+    origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
