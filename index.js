@@ -278,8 +278,8 @@ app.delete('/api/delete/:tname', (req, res) => {
     const trayname = name.slice(0, -1);
     console.log(casenumber);
     console.log(trayname);
-    const sqlquery = "DELETE FROM case_number_1 WHERE id = ?";
-    db.query(sqlquery, name, (err, result) => {
+    const sqlquery = `DELETE FROM case_number_${casenumber} WHERE id = ?`;
+    db.query(sqlquery, trayname, (err, result) => {
         if (err) console.log(err);
 
         res.send(result);
