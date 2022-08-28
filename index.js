@@ -290,7 +290,7 @@ app.delete('/api/delete/:tname', (req, res) => {
 app.put('/api/update/location', (req, res) => {
     const id = req.body.fid;
     const location = req.body.fcurrentLocation;
-    const casenumber = req.body.fcasenum;
+    const casenumber = req.body.fcasenum.toString();
 
 
     const sqlquery = `UPDATE case_number_${casenumber} SET currentLocation = ? WHERE id = ?`;
