@@ -139,7 +139,7 @@ app.post('/api/insert', (req, res) => {
 
 app.get('/api/get/traydata/:cname', (req, res) => {
     let casenum = req.params.cname;
-    console.log(casenum);
+    //console.log(casenum);
     db.query(`SELECT * FROM case_number_${casenum}`, (err, result) => {
         if (err) console.log(err); //took out throw eerro
 
@@ -274,8 +274,10 @@ app.get('/api/get/urgentTrays', (req, res) => {
 app.delete('/api/delete/:tname', (req, res) => {
 
     const name = req.params.tname;
-    const casenumber = name.charAt(name.length -1);
+    const casenumber = name.charAt(name.length - 1);
+    const trayname = name.slice(0, -1);
     console.log(casenumber);
+    console.log(trayname);
     const sqlquery = "DELETE FROM case_number_1 WHERE id = ?";
     db.query(sqlquery, name, (err, result) => {
         if (err) console.log(err);
