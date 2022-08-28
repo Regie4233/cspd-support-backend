@@ -274,6 +274,8 @@ app.get('/api/get/urgentTrays', (req, res) => {
 app.delete('/api/delete/:tname', (req, res) => {
 
     const name = req.params.tname;
+    const casenumber = name.charAt(name.length -1);
+    console.log(casenumber);
     const sqlquery = "DELETE FROM case_number_1 WHERE id = ?";
     db.query(sqlquery, name, (err, result) => {
         if (err) console.log(err);
