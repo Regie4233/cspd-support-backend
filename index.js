@@ -124,7 +124,7 @@ app.post('/api/insert', (req, res) => {
     const newNotes = req.body.fnotes;
     const newRoomVal = req.body.fradioVal;
     const newUrgentVal = req.body.fisUrgent;
-    const newTime = req.body.fdate;
+    const newTime = req.body.ftime;
     const newCasecart = req.body.fcasecart;
     const newCaseNumber = req.body.fcasenum;
     console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal + ' ' + newUrgentVal);
