@@ -126,9 +126,9 @@ app.post('/api/insert', (req, res) => {
     const newUrgentVal = req.body.fisUrgent;
     const newTime = req.body.fdate;
     const newCasecart = req.body.fcasecart;
-
+    const newCaseNumber = req.body.fcasenum;
     console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal + ' ' + newUrgentVal);
-    const sqlquery = `INSERT INTO case_number_1 (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
+    const sqlquery = `INSERT INTO case_number_${newCaseNumber} (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
     db.query(sqlquery, [newTrayname, newCurrentLocation, newNotes, newRoomVal, newUrgentVal, newTime, newCasecart], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('post added...');
@@ -290,7 +290,7 @@ app.delete('/api/delete/:tname', (req, res) => {
 app.put('/api/update/location', (req, res) => {
     const id = req.body.fid;
     const location = req.body.fcurrentLocation;
-    const casenumber = req.body.fcasenum.toString();
+    const casenumber = req.body.fcasenum;
 
 
     const sqlquery = `UPDATE case_number_${casenumber} SET currentLocation = ? WHERE id = ?`;
@@ -303,7 +303,8 @@ app.put('/api/update/location', (req, res) => {
 app.put('/api/update/casecart', (req, res) => {
     const id = req.body.fid;
     const casecart = req.body.fcasecart;
-    const sqlquery = 'UPDATE case_number_1 SET casecartnum = ? WHERE id = ?';
+    const casenum = req.body.fcasenum;
+    const sqlquery = `UPDATE case_number_${casenum} SET casecartnum = ? WHERE id = ?`;
     db.query(sqlquery, [casecart, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated case cart num...');
