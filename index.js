@@ -51,18 +51,7 @@ const db = mysql.createConnection({
     database: 'heroku_22b6e1917685152',
 
 });
-//mysql://be67012758069e:9d65f2d4@us-cdbr-east-06.cleardb.net/heroku_22b6e1917685152?reconnect=true trayinfo
-//mysql://b71f2d33ce9385:a02a3a4d@us-cdbr-east-06.cleardb.net/heroku_e8ff83b01220c86?reconnect=true login
 
-
-// const dblogin = mysql.createPool({
-//     hostname: 'us-cdbr-east-06.cleardb.net',
-//     user: 'b71f2d33ce9385',
-//     password: 'a02a3a4d',
-//     database: 'heroku_e8ff83b01220c86',
-//     connectionLimit: 2
-
-// });
 app.use(cors({
     origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
@@ -308,6 +297,18 @@ app.put('/api/update/casecart', (req, res) => {
     db.query(sqlquery, [casecart, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated case cart num...');
+
+    });
+});
+
+app.put('/api/update/notes', (req, res) => {
+    const id = req.body.fid;
+    const newNotes = req.body.fnotes;
+    const casenum = req.body.fcasenum;
+    const sqlquery = `UPDATE case_number_${casenum} SET notes = ? WHERE id = ?`;
+    db.query(sqlquery, [newNotes, id], (err, result) => {
+        if (err) { console.log("..." + err); }
+        res.send(`updated case notes... ${newNotes}`);
 
     });
 });
