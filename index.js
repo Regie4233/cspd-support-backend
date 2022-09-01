@@ -327,16 +327,28 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
 
 app.delete('/api/truncate', (req, res) => {
     console.log('start truncate');
-    // db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
-    //     if(err) { console.log('truncate error... ' + err); }
-    //     res.send('truncate tables');
-    // });
-    for (let i = 0; i < 3; i++) {
-        db.query(`TRUNCATE TABLE case_number_${i + 1}`, (err, result) => {
-            if (err) { console.log('truncate error... ' + err); }
-            res.send('truncate tables');
-        });
-    }
+    db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
+        if(err) { console.log('truncate error... ' + err); }
+        res.send('truncate tables');
+    });
+    db.query('TRUNCATE TABLE case_number_2',(err, result)=>{
+        if(err) { console.log('truncate error... ' + err); }
+        res.send('truncate tables');
+    });
+    db.query('TRUNCATE TABLE case_number_3',(err, result)=>{
+        if(err) { console.log('truncate error... ' + err); }
+        res.send('truncate tables');
+    });
+    db.query('TRUNCATE TABLE case_number_4',(err, result)=>{
+        if(err) { console.log('truncate error... ' + err); }
+        res.send('truncate tables');
+    });
+    // for (let i = 0; i < 3; i++) {
+    //     db.query(`TRUNCATE TABLE case_number_${i + 1}`, (err, result) => {
+    //         if (err) { console.log('truncate error... ' + err); }
+    //         res.send('truncate tables');
+    //     });
+    // }
 });
 
 
