@@ -325,7 +325,7 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
     });
 });
 
-app.delete('/api/truncate', (req, res) => {
+app.get('/api/truncate', (req, res) => {
     console.log('start truncate');
     for(let i = 1; i < 4; i++){
         db.query(`TRUNCATE TABLE case_number_${i}`, null,(err, result)=>{
