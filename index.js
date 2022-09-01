@@ -67,7 +67,7 @@ app.use(session({
     saveUnintialized: false,
 
     cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
-    store: new MemoryStore({checkPeriod: 60 * 60})
+    store: new MemoryStore({ checkPeriod: 60 * 60 })
 
 }));
 // app.get('/api/loginstatus', (req, res) => {
@@ -94,7 +94,7 @@ app.post('/api/login', (req, res) => {
                 res.send(result);
             } else {
                 res.send(false
-                    );
+                );
             }
         } else {
             res.send(false);
@@ -141,74 +141,74 @@ app.get('/api/get/traydata/:cname', (req, res) => {
         let temp_or26 = []; let temp_or27 = []; let temp_or28 = []; let temp_or29 = []; let temp_or30 = [];
         let temp_or31 = []; let temp_or32 = [];
 
-        for(let i = 0; i < result.length; i++){
-            if(result[i].roomnum === 1){
+        for (let i = 0; i < result.length; i++) {
+            if (result[i].roomnum === 1) {
                 temp_or1.push(result[i]);
-            } else if(result[i].roomnum === 2){
+            } else if (result[i].roomnum === 2) {
                 temp_or2.push(result[i]);
-            } else if(result[i].roomnum === 3){
+            } else if (result[i].roomnum === 3) {
                 temp_or3.push(result[i]);
-            } else if(result[i].roomnum === 4){
+            } else if (result[i].roomnum === 4) {
                 temp_or4.push(result[i]);
-            } else if(result[i].roomnum === 5){
+            } else if (result[i].roomnum === 5) {
                 temp_or5.push(result[i]);
-            } else if(result[i].roomnum === 6){
+            } else if (result[i].roomnum === 6) {
                 temp_or6.push(result[i]);
-            } else if(result[i].roomnum === 7){
+            } else if (result[i].roomnum === 7) {
                 temp_or7.push(result[i]);
-            } else if(result[i].roomnum === 8){
+            } else if (result[i].roomnum === 8) {
                 temp_or8.push(result[i]);
-            } else if(result[i].roomnum === 9){
+            } else if (result[i].roomnum === 9) {
                 temp_or9.push(result[i]);
-            } else if(result[i].roomnum === 10){
+            } else if (result[i].roomnum === 10) {
                 temp_or10.push(result[i]);
-            } else if(result[i].roomnum === 11){
+            } else if (result[i].roomnum === 11) {
                 temp_or11.push(result[i]);
-            } else if(result[i].roomnum === 12){
+            } else if (result[i].roomnum === 12) {
                 temp_or12.push(result[i]);
-            } else if(result[i].roomnum === 13){
+            } else if (result[i].roomnum === 13) {
                 temp_or13.push(result[i]);
-            } else if(result[i].roomnum === 14){
+            } else if (result[i].roomnum === 14) {
                 temp_or14.push(result[i]);
-            } else if(result[i].roomnum === 15){
+            } else if (result[i].roomnum === 15) {
                 temp_or15.push(result[i]);
-            } else if(result[i].roomnum === 16){
+            } else if (result[i].roomnum === 16) {
                 temp_or16.push(result[i]);
-            } else if(result[i].roomnum === 17){
+            } else if (result[i].roomnum === 17) {
                 temp_or17.push(result[i]);
-            } else if(result[i].roomnum === 18){
+            } else if (result[i].roomnum === 18) {
                 temp_or18.push(result[i]);
-            } else if(result[i].roomnum === 19){
+            } else if (result[i].roomnum === 19) {
                 temp_or19.push(result[i]);
-            } else if(result[i].roomnum === 20){
+            } else if (result[i].roomnum === 20) {
                 temp_or20.push(result[i]);
-            } else if(result[i].roomnum === 21){
+            } else if (result[i].roomnum === 21) {
                 temp_or21.push(result[i]);
-            } else if(result[i].roomnum === 22){
+            } else if (result[i].roomnum === 22) {
                 temp_or22.push(result[i]);
-            } else if(result[i].roomnum === 23){
+            } else if (result[i].roomnum === 23) {
                 temp_or23.push(result[i]);
-            } else if(result[i].roomnum === 24){
+            } else if (result[i].roomnum === 24) {
                 temp_or24.push(result[i]);
-            } else if(result[i].roomnum === 25){
+            } else if (result[i].roomnum === 25) {
                 temp_or25.push(result[i]);
-            } else if(result[i].roomnum === 26){
+            } else if (result[i].roomnum === 26) {
                 temp_or26.push(result[i]);
-            } else if(result[i].roomnum === 27){
+            } else if (result[i].roomnum === 27) {
                 temp_or27.push(result[i]);
-            } else if(result[i].roomnum === 28){
+            } else if (result[i].roomnum === 28) {
                 temp_or28.push(result[i]);
-            } else if(result[i].roomnum === 29){
+            } else if (result[i].roomnum === 29) {
                 temp_or29.push(result[i]);
-            } else if(result[i].roomnum === 30){
+            } else if (result[i].roomnum === 30) {
                 temp_or30.push(result[i]);
-            } else if(result[i].roomnum === 31){
+            } else if (result[i].roomnum === 31) {
                 temp_or31.push(result[i]);
-            } else if(result[i].roomnum === 32){
+            } else if (result[i].roomnum === 32) {
                 temp_or32.push(result[i]);
             }
         }
-        
+
         or1 = temp_or1;
         or2 = temp_or2;
         or3 = temp_or3;
@@ -327,16 +327,16 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
 
 app.post('/api/truncate', (req, res) => {
     console.log('start truncate');
-    db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
-        if(err) { console.log('truncate error... ' + err); }
-        res.send('truncate tables');
-    });
-    // for(let i = 0; i < 3; i++){
-    //     db.query(`TRUNCATE TABLE case_number_${i+1}`,(err, result)=>{
-    //         if(err) { console.log('truncate error... ' + err); }
-    //         res.send('truncate tables');
-    //     });
-    // }
+    // db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
+    //     if(err) { console.log('truncate error... ' + err); }
+    //     res.send('truncate tables');
+    // });
+    for (let i = 0; i < 3; i++) {
+        db.query(`TRUNCATE TABLE case_number_${i + 1}`, null, (err, result) => {
+            if (err) { console.log('truncate error... ' + err); }
+            res.send('truncate tables');
+        });
+    }
 });
 
 
