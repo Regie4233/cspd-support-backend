@@ -325,7 +325,7 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
     });
 });
 
-app.post('/api/truncate', (req, res) => {
+app.delete('/api/truncate', (req, res) => {
     console.log('start truncate');
     db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
         if(err) { console.log('truncate error... ' + err); }
