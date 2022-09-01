@@ -325,21 +325,10 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
     });
 });
 
-app.delete('/api/truncate', (req, res) => {
+app.delete('/api/truncate/:case', (req, res) => {
+    const num = req.params.case;
     console.log('start truncate');
-    db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
-        if(err) { console.log('truncate error... ' + err); }
-        res.send('truncate tables');
-    });
-    db.query('TRUNCATE TABLE case_number_2',(err, result)=>{
-        if(err) { console.log('truncate error... ' + err); }
-        res.send('truncate tables');
-    });
-    db.query('TRUNCATE TABLE case_number_3',(err, result)=>{
-        if(err) { console.log('truncate error... ' + err); }
-        res.send('truncate tables');
-    });
-    db.query('TRUNCATE TABLE case_number_4',(err, result)=>{
+    db.query(`TRUNCATE TABLE case_number_${num}`,(err, result)=>{
         if(err) { console.log('truncate error... ' + err); }
         res.send('truncate tables');
     });
