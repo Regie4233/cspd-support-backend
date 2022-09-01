@@ -327,12 +327,16 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
 
 app.get('/api/truncate', (req, res) => {
     console.log('start truncate');
-    for(let i = 1; i < 4; i++){
-        db.query(`TRUNCATE TABLE case_number_${i}`, null,(err, result)=>{
-            if(err) { console.log('truncate error... ' + err); }
-            res.send('truncate tables');
-        });
-    }
+    db.query('TRUNCATE TABLE case_number_1',(err, result)=>{
+        if(err) { console.log('truncate error... ' + err); }
+        res.send('truncate tables');
+    });
+    // for(let i = 1; i < 4; i++){
+    //     db.query(`TRUNCATE TABLE case_number_${i}`, null,(err, result)=>{
+    //         if(err) { console.log('truncate error... ' + err); }
+    //         res.send('truncate tables');
+    //     });
+    // }
 });
 
 
