@@ -325,7 +325,7 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
     });
 });
 
-app.delete('/api/truncate', (req, res) => {
+app.post('/api/truncate', (req, res) => {
     console.log('start truncate');
     
     for(let i = 0; i < 3; i++){
