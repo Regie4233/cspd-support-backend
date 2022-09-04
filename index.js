@@ -294,9 +294,8 @@ app.put('/api/update/location', (req, res) => {
     const id = req.body.fid;
     const location = req.body.fcurrentLocation;
     const casenumber = req.body.fcasenum;
-
-
-    const sqlquery = `UPDATE case_number_${casenumber} SET currentLocation = ? WHERE id = ?`;
+    const casetype = casenumber === 'Urgent' ? 'urgent' : `case_number_${casenumber}`;
+    const sqlquery = `UPDATE ${casetype} SET currentLocation = ? WHERE id = ?`;
     db.query(sqlquery, [location, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated location...');
