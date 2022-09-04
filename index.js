@@ -112,13 +112,14 @@ app.post('/api/insert', (req, res) => {
     const newCurrentLocation = req.body.fcurrentlocation;
     const newNotes = req.body.fnotes;
     const newRoomVal = req.body.fradioVal;
-    const newUrgentVal = req.body.fisUrgent;
+    // const newUrgentVal = req.body.fisUrgent;
     const newTime = req.body.ftime;
     const newCasecart = req.body.fcasecart;
     const newCaseNumber = req.body.fcasenum;
+    const typeofCase = req.body.fisUrgent === 1 ? 'urgent' : `case_number_${newCaseNumber}`;
     console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal + ' ' + newUrgentVal);
-    const sqlquery = `INSERT INTO case_number_${newCaseNumber} (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
-    db.query(sqlquery, [newTrayname, newCurrentLocation, newNotes, newRoomVal, newUrgentVal, newTime, newCasecart], (err, result) => {
+    const sqlquery = `INSERT INTO ${typeofCase} (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
+    db.query(sqlquery, [newTrayname, newCurrentLocation, newNotes, newRoomVal, 0, newTime, newCasecart], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('post added...');
 
