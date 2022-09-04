@@ -294,7 +294,8 @@ app.put('/api/update/location', (req, res) => {
     const id = req.body.fid;
     const location = req.body.fcurrentLocation;
     const casenumber = req.body.fcasenum;
-    const casetype = casenumber === 'Urgent' ? 'urgent' : `case_number_${casenumber}`;
+    const isUrgent = req.body.fisUrgent;
+    const casetype = isUrgent === true ? 'urgent' : `case_number_${casenumber}`;
     const sqlquery = `UPDATE ${casetype} SET currentLocation = ? WHERE id = ?`;
     db.query(sqlquery, [location, id], (err, result) => {
         if (err) { console.log("..." + err); }
@@ -306,7 +307,9 @@ app.put('/api/update/casecart', (req, res) => {
     const id = req.body.fid;
     const casecart = req.body.fcasecart;
     const casenum = req.body.fcasenum;
-    const sqlquery = `UPDATE case_number_${casenum} SET casecartnum = ? WHERE id = ?`;
+    const isUrgent = req.body.fisUrgent;
+    const casetype = isUrgent === true ? 'urgent' : `case_number_${casenum}`;
+    const sqlquery = `UPDATE ${casetype} SET casecartnum = ? WHERE id = ?`;
     db.query(sqlquery, [casecart, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send('updated case cart num...');
