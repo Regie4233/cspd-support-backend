@@ -117,7 +117,7 @@ app.post('/api/insert', (req, res) => {
     const newCasecart = req.body.fcasecart;
     const newCaseNumber = req.body.fcasenum;
     const typeofCase = req.body.fisUrgent === 1 ? 'urgent' : `case_number_${newCaseNumber}`;
-    console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal + ' ' + newUrgentVal);
+    console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal);
     const sqlquery = `INSERT INTO ${typeofCase} (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
     db.query(sqlquery, [newTrayname, newCurrentLocation, newNotes, newRoomVal, 0, newTime, newCasecart], (err, result) => {
         if (err) { console.log("..." + err); }
