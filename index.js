@@ -116,7 +116,6 @@ app.post('/api/insert', (req, res) => {
     const newTime = req.body.ftime;
     const newCasecart = req.body.fcasecart;
     const newCaseNumber = req.body.fcasenum;
-    console.log(newUrgentVal);
     const typeofCase = newUrgentVal === true ? 'urgent' : `case_number_${newCaseNumber}`;
     console.log(newTrayname + ' ' + newCurrentLocation + ' ' + newNotes + ' ' + newRoomVal);
     const sqlquery = `INSERT INTO ${typeofCase} (trayname, currentLocation, notes, roomnum, isUrgent, timeadded, casecartnum) VALUES (?,?,?,?,?,?,?)`;
