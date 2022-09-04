@@ -266,10 +266,23 @@ app.delete('/api/delete/:tname', (req, res) => {
     const name = req.params.tname;
     const casenumber = name.charAt(name.length - 1);
     const trayname = name.slice(0, -1);
-    console.log(casenumber);
-    console.log(trayname);
+    
     const sqlquery = `DELETE FROM case_number_${casenumber} WHERE id = ?`;
     db.query(sqlquery, trayname, (err, result) => {
+        if (err) console.log(err);
+
+        res.send(result);
+    });
+
+});
+app.delete('/api/delete/urgent/:tname', (req, res) => {
+
+    const name = req.params.tname;
+    // const casenumber = name.charAt(name.length - 1);
+    // const trayname = name.slice(0, -1);
+    
+    const sqlquery = 'DELETE FROM urgent WHERE id = ?';
+    db.query(sqlquery, name, (err, result) => {
         if (err) console.log(err);
 
         res.send(result);
