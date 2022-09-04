@@ -345,8 +345,9 @@ app.put('/api/update/trayname', (req, res) => { //work in progress
 
 app.delete('/api/truncate/:case', (req, res) => {
     const num = req.params.case;
+    const casetype = num === 'urgent' ? 'urgent' : `case_number_${num}`;
     console.log('start truncate');
-    db.query(`TRUNCATE TABLE case_number_${num}`,(err, result)=>{
+    db.query(`TRUNCATE TABLE ${casetype}`,(err, result)=>{
         if(err) { console.log('truncate error... ' + err); }
         res.send('truncate tables');
     });
