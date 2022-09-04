@@ -251,7 +251,7 @@ app.get('/api/get/traydata/:cname', (req, res) => {
 });
 
 app.get('/api/get/urgentTrays', (req, res) => {
-    const sqlselect = "SELECT * FROM case_number_1 WHERE isUrgent = 1";
+    const sqlselect = "SELECT * FROM urgent";
     db.query(sqlselect, (err, result) => {
         if (err) { console.log(err) }
         res.send(result);
