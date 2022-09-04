@@ -318,7 +318,8 @@ app.put('/api/update/notes', (req, res) => {
     const id = req.body.fid;
     const newNotes = req.body.fnotes;
     const casenum = req.body.fcasenum;
-    const sqlquery = `UPDATE case_number_${casenum} SET notes = ? WHERE id = ?`;
+    const casetype = casenumber === 'Urgent' ? 'urgent' : `case_number_${casenumber}`;
+    const sqlquery = `UPDATE ${casetype} SET notes = ? WHERE id = ?`;
     db.query(sqlquery, [newNotes, id], (err, result) => {
         if (err) { console.log("..." + err); }
         res.send(`updated case notes... ${newNotes}`);
