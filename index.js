@@ -53,7 +53,7 @@ const db = mysql.createConnection({
 });
 
 app.use(cors({
-    origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter'],
+    origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter', 'https://cspd-support-preview.rsimon.dev', 'https://rsimon.dev'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
