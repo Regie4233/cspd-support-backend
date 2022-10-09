@@ -52,13 +52,14 @@ const db = mysql.createConnection({
 
 });
 
-app.set("trust proxy", 1);
+
 
 app.use(cors({
     origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter', 'https://cspd-support-preview.rsimon.dev', 'https://cspd-support-preview.rsimon.dev/reporter', 'http://localhost:3000/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
+app.set("trust proxy", 1); //doesnt work
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cookieParser());
