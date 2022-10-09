@@ -61,13 +61,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(cookieParser());
 app.use(session({
-    key: 'UserID',
+    // key: 'UserID',
     secret: 'thissessionissecret',
-    resave: false,
-    saveUnintialized: false,
+    // resave: false,
+    // saveUnintialized: false,
 
-    cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
-    store: new MemoryStore({ checkPeriod: 60 * 60 })
+    // cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
+    // store: new MemoryStore({ checkPeriod: 60 * 60 })
 
 }));
 // app.get('/api/loginstatus', (req, res) => {
