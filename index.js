@@ -52,11 +52,12 @@ const db = mysql.createConnection({
 
 });
 
+app.use("trust proxy", 1);
+
 app.use(cors({
     origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter', 'https://cspd-support-preview.rsimon.dev', 'https://cspd-support-preview.rsimon.dev/reporter', 'http://localhost:3000/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
-    
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,11 +66,11 @@ app.use(session({
     // key: 'UserID',
     secret: 'thissessionissecret',
     
-    // resave: false,
-    // saveUnintialized: false,
+    resave: false,
+    saveUnintialized: false,
 
     cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
-    store: new MemoryStore({ checkPeriod: 60 * 60 })
+    // store: new MemoryStore({ checkPeriod: 60 * 60 })
 
 }));
 // app.get('/api/loginstatus', (req, res) => {
