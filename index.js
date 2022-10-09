@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const cors = require('cors');
 const mysql = require('mysql');
@@ -53,13 +53,13 @@ const db = mysql.createConnection({
 });
 
 app.use(cors({
-    origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter', 'https://cspd-support-preview.rsimon.dev', 'https://rsimon.dev'],
+    origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter', 'https://cspd-support-preview.rsimon.dev', 'https://rsimon.dev', 'http://localhost:3000/login'],
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
     credentials: true,
 }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(session({
     key: 'UserID',
     secret: 'thissessionissecret',
