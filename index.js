@@ -52,7 +52,7 @@ const db = mysql.createConnection({
 
 });
 
-
+app.set("trust proxy", 1);
 
 app.use(cors({
     origin: ['https://regie4233.github.io', 'http://localhost:3000', 'http://localhost:3000/reporter', 'https://cspd-support-preview.rsimon.dev', 'https://cspd-support-preview.rsimon.dev/reporter', 'http://localhost:3000/login'],
@@ -73,7 +73,7 @@ app.use(session({
     // store: new MemoryStore({ checkPeriod: 60 * 60 })
 
 }));
-app.use("trust proxy", 1);
+
 // app.get('/api/loginstatus', (req, res) => {
 //     if(req.session.user){
 //         res.send({loggedIn: true, loggedUser: req.session.user});
