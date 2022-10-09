@@ -68,8 +68,8 @@ app.use(session({
     // resave: false,
     // saveUnintialized: false,
 
-    // cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
-    // store: new MemoryStore({ checkPeriod: 60 * 60 })
+    cookie: { maxAge: 60 * 60 * 24, secure: true, sameSite: 'none' },
+    store: new MemoryStore({ checkPeriod: 60 * 60 })
 
 }));
 // app.get('/api/loginstatus', (req, res) => {
