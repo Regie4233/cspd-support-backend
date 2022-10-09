@@ -133,6 +133,8 @@ app.get('/api/get/traydata/:cname', (req, res) => {
     db.query(`SELECT * FROM case_number_${casenum}`, (err, result) => {
         if (err) console.log(err); //took out throw eerro
 
+        //for debugging
+        console.log("TESING ");
 
         let temp_or1 = []; let temp_or2 = []; let temp_or3 = []; let temp_or4 = []; let temp_or5 = [];
         let temp_or6 = []; let temp_or7 = []; let temp_or8 = []; let temp_or9 = []; let temp_or10 = [];
